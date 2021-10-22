@@ -1,0 +1,937 @@
+Test for routes info
+
+
+# a = Routing_tipping()
+# df = a.drop_no_docket(df)
+# route_tip_df = a.transform(df)
+
+# route_tip = Routing_tipping(route_tip_df).routes_weight('CARDBOARD')
+
+# diff = Routing_tipping(route_tip_df).routes_diff('CARDBOARD')
+
+# print(route_tip)
+
+# list_rev_types = ['TOTAL', 'GENERAL_WASTE',
+#                   'CARDBOARD', 'COMINGLED', 'SUBCONTRACTED', 'UOS']
+
+# list_report_sheets = ['WEEKLY_SUMMARY', 'TOTAL', 'GENERAL_WASTE',
+#                       'CARDBOARD', 'COMINGLED', 'SUBCONTRACTED', 'UOS']
+
+
+# df = pd.read_csv(path, dtype={"Schd Time Start": str, "PO": str})
+
+# # Transform
+# trans_df = dt_wet().transform_and_clean_Route_num(df)
+# trans_df = dt_wet().transform_date(df)
+
+# # resample df by 7D
+# resampled_df = rev().resample_by_7d(trans_df)
+
+# date_keys = rev().date_keys(resampled_df)
+
+# current_date = date_keys[0].date()
+
+# print(current_date)
+
+# df_by_date = rev().get_df_by(resampled_df, current_date)
+
+# # df_by_date => 
+# rev_type = Revenue_by_type(df_by_date)
+
+# names = rev_type.routes_name('GENERAL_WASTE')
+# series = rev_type.routes_inc_series('GENERAL_WASTE')
+# incs = rev_type.routes_inc('GENERAL_WASTE')
+
+
+    # Also use if to catch Total => list out all route income
+    total_inc = booking_df.total_inc(rev_type_name)
+    routes_inc = booking_df.routes_inc(rev_type_name)
+    routes_inc_series = booking_df.routes_inc_series(rev_type_name)
+    routes_name = booking_df.routes_name(rev_type_name)
+
+    # Tipping Dataframe
+    # RETURN dataframe => dataframe['weight'] or  dataframe['expOrRebate']
+    total_weight_expOrRebate = route_tipping(
+        tipping_df).total_weight_rebateOrExp(rev_type_name, )
+    # RETURN dataframe Key : routes number, values : [routes' weight, routes' expense or rebate
+    routes_weight_expOrRebate = route_tipping(
+        tipping_df).routes_weight_expOrRebate(rev_type_name, )
+
+    # list_rev_types = ['TOTAL', 'GENERAL_WASTE',
+    #               'CARDBOARD', 'COMINGLED', 'SUBCONTRACTED', 'UOS']
+    # if condition for Total
+
+    # routes_info_data = (Routes_info(
+    #     rev_type_name,
+    #     total_routes_inc,
+
+    # ))
+
+
+# After having list of  routes info object
+
+# Weekly report Total Sheet
+# Weekly report Rev type sheet
+
+# (weekly_report
+#         .by_rev_type(
+#             wb,
+#             rev_type_name,
+#             current_date,
+#             routes_info_obj)
+#     )
+
+# rev_routes_inc = [rev_type.routes_inc(rev_type_name) for rev_type_name in list_rev_types]
+# (weekly_report
+#     .by_rev_type())
+
+
+
+
+
+
+Testing code
+
+
+# print('__file__={0:<35} | __name__={1:<20} | __package__={2:<20}'.format(__file__,__name__,str(__package__)))
+
+
+# C:\\Users\\gordon\\Desktop\\codeVault\\report_system\\
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..\\..\\', 'revenue'))
+# import Revenue as rev
+# sys.path.append(os.path.join(os.path.dirname(__file__), 'C:\\Users\\gordon\\Desktop\\codeVault\\report_system\\revenue', 'revenue_by_type.py'))
+# print(os.path)
+
+# from revenue_by_type import Revenue_by_type
+# revenue.
+# from .. import Revenue
+# # revenue_by_type  Revenue
+# # Revenue_by_type  
+
+# import pandas as pd 
+# import numpy as np
+
+
+
+ 
+
+# df = Revenue.()
+# from report_system.revenue.revenue import Revenue
+
+# Y:/new_project>python -m project.package.demo
+
+#  __file__=Y:/new_project/project/package/demo.py | __name__=__main__                  | __package__=project.package
+#  __file__=Y:/new_project/project/config.py       | __name__=project.config            | __package__=project
+#  The value of config.count is 5
+
+
+# #  project
+# #  ├── config.py
+# #  └── package
+# #      ├── __init__.py
+# #      └── demo.py
+
+# /main/
+# /main/common/foo.py
+# /main/A/
+# /main/A/src/
+# /main/A/src/bar.py
+
+# use Python's relative imports to import foo from bar?
+
+# bar directory
+
+
+Main
+
+# [print(f'{rev_type} is {by_rev_type.routes_inc(rev_type)}') for rev_type in list_rev_types]
+
+
+
+
+# # dates 
+# weekly_dfs_key = list(weekly_dfs.groups.keys())
+
+# # ================================================================================
+# rev_types = ['total', 'general_waste', 'cardboard',
+#              'comingled', 'subContractor', 'uos']
+
+# list_of_worksheet = ['total', 'general_waste', 'cardboard',
+#                      'comingled', 'subContractor', 'uos', 'weekly_fr']
+# # else:
+# # series[0]
+# # df_date = series_keys["2021-01-13"]
+# dates = rev(df).get_dates()
+# # print(dates)
+
+# # (['2020-12-23', '2020-12-30', '2021-01-06', '2021-01-13','2021-01-20']
+
+# # must not be string dates[-1], since its a key for extracting dataset
+# current_report_date = dates[3]
+
+# # [x for x in lst if 'abc' in x]
+# rev_types_inc = [rev(df).get_income_by_rev_type(
+#     rev_type, current_report_date) for rev_type in rev_types]
+
+# routes_inc = [rev(df).get_income_per_route_by_rev_type(rev_type, current_report_date)
+#               for rev_type in rev_types]
+
+
+# weii_obj = weii(rev_types_inc[0], rev_types_inc[1], rev_types_inc[2],
+#                 rev_types_inc[3], rev_types_inc[4], rev_types_inc[5])
+
+# wb = xw.Book()
+# rt().add_sheets(wb, list_of_worksheet)
+
+# # list compre
+# # [s for s in my_list if any(xs in s for xs in matchers)]
+# # Paul report
+# current_report_date_title = "Date : " + str(current_report_date)
+# rt().paul_weekly_fr1(wb, "weekly_fr", current_report_date_title, weii_obj)
+
+Report Temple
+
+# list_of_wsname  = list[str]
+
+    def add_sheets(
+            self,
+            wb: object,
+            list_of_wsname=[]):
+        # print(list_of_wsname)
+        num_list_of_wsname = len(list_of_wsname)
+        num_sheets = len(wb.sheets)
+
+        if num_list_of_wsname > num_sheets:
+            add_num_sheets = num_list_of_wsname - num_sheets
+            [wb.sheets.add() for n in range(add_num_sheets)]
+
+        for i, wsname in enumerate(list_of_wsname):
+            wb.sheets[i].name = wsname
+
+# For each of Worksheet
+    def paul_weekly_fr1(
+            self,
+            wb: object,
+            ws_name: str = "weekly_fr",
+            start_date: str = "dd/mm/yyyy",
+            we_income_items: object = {},
+            service_income_items: object = {},
+            fix_income: float = 0,
+            cb_weight: float = 0,
+            gw_weight: float = 0,
+            cm_weight: float = 0,
+            org_weight: float = 0):
+
+        ws = wb.sheets[ws_name]
+
+        # report formating
+        # ========================
+        super().format_ws_font_style_to_arial(wb, ws_name)
+        super().format_left_columns(wb, ws_name)
+        # ========================
+
+        # Financial Report Headers
+        # =======================
+        # Header title
+        # start date
+        # finish date
+        super().format_weekly_fr1_header(wb, ws_name, start_date)
+
+        # B4 Anchor Shell
+        # Assume report contents are start with B4
+        # service income session
+        super().format_weekly_fr1_service_income(wb, ws_name)
+
+        # Down B4 of 6 cell, will be change to dynamic 
+        # When there are more service income item 
+        super().format_weekly_fr1_operating_income(wb, ws_name, we_income_items)
+
+        # Must be refractor as picking object key
+        # point to the value
+        # operating expense 
+        super().format_weekly_fr1_operating_expense(wb, ws_name)
+
+
+    # Revenue Report template as Vectical
+
+    def report_templates_vertical1(self, wb: object, rev_type_name: str, series: object, df_start_date: str):
+        total_income = 0
+        route_num = []
+        route_incomes = []
+
+        
+        if rev_type_name == 'total':
+            total_income = series.Price.sum()
+
+            route_nums = series.groupby('Route number').Price.sum()
+
+            route_nums_keys = route_nums.keys()
+
+            route_nums_keys = super().transform_list_to_nested_list(
+                route_nums_keys)
+            [route_incomes.append(route_income) for route_income in route_nums]
+            route_incomes = super().transform_list_to_nested_list(route_incomes)
+
+        else:
+            list_of_route_num = rev.rev_type_hardcode(rev_type_name)
+            series_per_rev_type = rev.filter_df_by_rev_routes(
+                series, list_of_route_num)
+            total_income = series_per_rev_type.Price.sum()
+
+            route_nums = series_per_rev_type.groupby(
+                'Route number').Price.sum()
+
+            route_nums_keys = route_nums.keys()
+
+            route_nums_keys = super().transform_list_to_nested_list(
+                route_nums_keys)
+
+            [route_incomes.append(route_income) for route_income in route_nums]
+            route_incomes = super().transform_list_to_nested_list(route_incomes)
+
+            # route number and income
+
+        super().format_ws_font_style_to_arial(wb, rev_type_name)
+        super().format_headers(wb, rev_type_name, df_start_date)
+        super().format_left_columns(wb, rev_type_name)
+        super().format_report_content_total_income(wb, rev_type_name, total_income)
+        super().routes_rev_display_vertical(
+            wb, rev_type_name, route_nums_keys, route_incomes)
+
+    # ======================================================
+
+
+# Revenue Report template as Horizontal
+# ======================================================
+
+    def report_templates_horizontal(self, wb: object, rev_type_name: str, series: object, df_start_date: str):
+        total_income = 0
+        route_num = []
+        route_incomes = []
+
+    # ===============================================
+        # Building the total_sheet
+        if rev_type_name == 'total':
+            total_income = series.Price.sum()
+
+            route_nums = series.groupby('Route number').Price.sum()
+        # convert index List to list
+            route_nums_keys = route_nums.keys()
+            route_nums_keys = route_nums_keys.tolist()
+        #    route_nums_keys = super().transform_list_to_nested_list(route_nums_keys)
+            [route_incomes.append(route_income) for route_income in route_nums]
+
+    # ===============================================
+        # build by each page
+    # ===============================================
+        else:
+
+            list_of_route_num = rev.rev_type_hardcode(rev_type_name)
+            series_per_rev_type = rev.filter_df_by_rev_routes(
+                series, list_of_route_num)
+            total_income = series_per_rev_type.Price.sum()
+
+            route_nums = series_per_rev_type.groupby(
+                'Route number').Price.sum()
+
+            # convert index List to list
+            route_nums_keys = route_nums.keys()
+            route_nums_keys = route_nums_keys.tolist()
+            # route_nums_keys = super().transform_list_to_nested_list(route_nums_keys)
+
+            [route_incomes.append(route_income) for route_income in route_nums]
+            #    ============================================================================
+            # populate all rev (Need to refactor)
+            super().display_rev_type_in_total_sheet(wb, rev_type_name, total_income)
+
+            #    ============================================================================
+    # ===============================================
+            # route_incomes = super().transform_list_to_nested_list(route_incomes)
+
+            # route number and income
+
+        super().format_ws_font_style_to_arial(wb, rev_type_name)
+        super().format_headers(wb, rev_type_name, df_start_date)
+        super().format_left_columns(wb, rev_type_name)
+        super().format_report_content_total_income(wb, rev_type_name, total_income)
+        super().routes_rev_display_horizontal(
+            wb, rev_type_name, route_nums_keys, route_incomes)
+
+
+
+Report template 
+
+
+    def format_weekly_fr1_header(self, wb: object, ws_name: str, start_date: str = "dd/mm/yyyy"):
+        report_title = wb.sheets[ws_name].range('A1')
+        report_start_date = wb.sheets[ws_name].range('A2')
+        report_title.value = "Weekly Financial Report Summary"
+        report_start_date.value = start_date
+# Also need to calculate finish date
+# ================
+        # Adjust the Head title
+        report_title.api.Font.Size = 13
+        report_start_date.api.Font.Size = 13
+        report_title.api.Font.Bold = True
+        report_start_date.api.Font.Bold = True
+
+    # Left 2 columns width format
+
+    def format_weekly_fr1_service_income(
+            self,
+            wb: object,
+            ws_name: str,
+            position: str = "B4"):
+
+        # Main Service Cat title
+        service_inc_title = wb.sheets[ws_name].range(position)
+        service_inc_title.value = "Service Income"
+        service_inc_title.api.Font.Size = 13
+        service_inc_title.api.Font.Bold = True
+
+        # service inc item 1
+        # position left 1 down 1
+        # service_inc_items         item1 item2
+        # service_inc_items figure  [123, 456]
+        service_inc_item1 = service_inc_title.offset(
+            row_offset=1, column_offset=1)
+        service_inc_item1.value = "Service Income"
+        service_inc_item1_figure = service_inc_item1.offset(column_offset=6)
+        service_inc_item1_figure.value = ""
+
+
+# ===================================================================================
+
+    def format_weekly_fr1_operating_income(
+            self,
+            wb: object,
+            ws_name: str,
+            rev_types: object = {},
+            anchor_cell: str = "B4"):
+        # Main Operating Income title
+        operating_inc = wb.sheets[ws_name].range(
+            anchor_cell).offset(row_offset=6)
+        operating_inc.value = "Operating Income"
+        operating_inc.api.Font.Size = 13
+        operating_inc.api.Font.Bold = True
+# Sub title
+        subtitle = operating_inc.offset(row_offset=1)
+        subtitle.value = "Add:"
+
+        operating_inc_header = subtitle.offset(column_offset=6)
+        operating_inc_header.value = ['Ton', 'Rate', 'Percentage']
+# Income Items Content
+        # Should be refractor
+        # switch object
+
+        def switch_rev_type(key):
+            # Revenue type 
+
+            switcher = {
+                'total': 'Revenue - Total',
+                'gw': "Revenue - General Waste",
+                'cb': "Revenue - Cardboard",
+                'cm': "Revenue - Comingled",
+                'sub': "Revenue - Subcontractor",
+                'uos': "Revenue - UOS",
+                'fx': "Revenue - Fixed Revenue"
+            }
+            rev_routes = switcher.get(key, "invalid entry")
+            return rev_routes
+
+        def inspect_fill_empty_cell(
+                target_cell: object,
+                rev_type_key,
+                rev_type_figure):
+
+            if target_cell.value is None:
+                if rev_type_key == "total":
+                    target_cell.value = switch_rev_type(rev_type_key)
+                    target_cell.offset(column_offset=9).value = rev_type_figure
+                else:
+                    target_cell.value = switch_rev_type(rev_type_key)
+                    target_cell.offset(column_offset=8).value = rev_type_figure
+                    return target_cell
+            else:
+                target_cell = target_cell.offset(row_offset=1)
+                return inspect_fill_empty_cell(target_cell, rev_type_key, rev_type_figure)
+
+        # left 1 down 1 and check has value
+        inc_content_anchor_cell = subtitle.offset(
+            row_offset=1, column_offset=1)
+        # Start from  operating_inc position
+        rev_types_dict = rev_types.__dict__
+        keys = rev_types_dict.keys()
+        # keys = rev_types_dict.keys()
+
+        rev_types_cells = [inspect_fill_empty_cell(
+            inc_content_anchor_cell, key, rev_types_dict[key]) for key in keys]
+        # down one by all rev types
+        last_of_rev_types_cells = rev_types_cells[-1]
+
+        cardboard_rebate = last_of_rev_types_cells.offset(row_offset=1)
+        cardboard_rebate.value = "CardBoard Recycling Rebate"
+
+        cardboard_rebate_rate = cardboard_rebate.offset(column_offset=6)
+
+        total_rev = cardboard_rebate.offset(row_offset=2)
+        total_rev.value = "Total Revenue"
+        total_rev.api.Font.Bold = True
+
+# ===================================================================================
+        # Anchor Cell B4
+        # add_rebate_figure = add_rebate.offset(column_offset=5)
+        # cws - Contract Waste Services Exp
+        # cgt - Contract Grease Trap Exp
+    def format_weekly_fr1_operating_expense(
+            self,
+            wb: object,
+            ws_name: str,
+            gw_tons: float = 0,
+            gw_rate: float = 0,
+            cm_tons: float = 0,
+            cm_rate: float = 0,
+            org_tons: float = 0,
+            org_rate: float = 0,
+            cws: float = 0,
+            cgt: float = 0,
+            others: float = 0,
+            anchor_cell: str = "B4"):
+
+        operating_exp = wb.sheets[ws_name].range(
+            anchor_cell).offset(row_offset=20)
+# Main Operating Expense title
+        operating_exp.value = "Operating Expense"
+        operating_exp.api.Font.Size = 13
+        operating_exp.api.Font.Bold = True
+# Sub title
+        subtitle = operating_exp.offset(row_offset=1)
+        subtitle.value = "Less:"
+
+        operating_exp_header = subtitle.offset(column_offset=6)
+        operating_exp_header.value = ['Ton', 'Rate', 'Percentage']
+
+
+# Exp Item Content
+        def switch_exp_items(key):
+
+            switcher = {
+                'gw': 'Expense - General Waste',
+                'cm': "Expense - Comingled",
+                'org': "Expense - Organics",
+                'cws': "Contracting Waste Service",
+                'cgt': "Contracting Grease Trap",
+                'others': "Expense - Others"
+            }
+            exp_item = switcher.get(key, "invalid entry")
+            return exp_item
+
+        def inspect_fill_empty_cell(
+                target_cell: object,
+                exp_items_key,
+                exp_item_figure: float = 0):
+
+            if target_cell.value is None:
+                target_cell.value = switch_exp_items(exp_items_key)
+                target_cell.offset(column_offset=8).value = exp_item_figure
+                return target_cell
+
+            else:
+                
+                target_cell = target_cell.offset(row_offset=1)
+                return inspect_fill_empty_cell(target_cell, exp_items_key, exp_item_figure)
+
+        # Operating expense Items content 
+        exp_items_list = ['gw','cm','org' ,'cws','cgt','others']
+        # left 1 down 1 and check has value
+        op_exp_content_anchor_cell = subtitle.offset(
+            row_offset=1, column_offset=1)
+
+        exp_items_cell = [inspect_fill_empty_cell(op_exp_content_anchor_cell, exp_item) for exp_item in exp_items_list]
+        
+        last_of_exp_item = exp_items_cell[-1]   <====== inspect_fill_empty_cell
+        
+        total_exp = last_of_exp_item.offset(row_offset=2)
+        total_exp.value = "Total Expense"
+        total_exp.api.Font.Bold = True
+# =============================================================================
+
+
+    def format_report_content_total_income(self, wb, ws_name: str, total_revenue: float = 0.00):
+        ws = wb.sheets[ws_name]
+        income_title = ws.range('B4')
+        income_title.value = "Income"
+        income_title.api.Font.Bold = True
+        total_revenue_title = ws.range('B6')
+        # =================================================================
+        # Total Rev title
+        total_revenue_title.value = "Total Revenue from Waste Edge"
+        # ===================================================================
+        total_revenue_title.offset(column_offset=7).value = total_revenue
+
+        # Route numbers List
+        # How to type route_num as List[str] or iter[str]
+
+    # offset(row_offset=0, column_offset=0)
+        # By Route / Tuck Number / By Bin Vol =>
+        # It would designed as offset by one Cell location
+        # So to be flexiblely replace by Cell location
+        # Anchor Cell as B5 as Total Revenue title cell
+
+    def routes_rev_display_vertical(
+            self,
+            wb,
+            ws_name: str,
+            route_nums=[],
+            route_nums_figure=[],
+            anchor_cell: str = "B6"):
+
+        ws = wb.sheets[ws_name]
+        # anchor_cell => Revenue label
+        anchor_cell_loc = ws.range(anchor_cell)
+        # down 1 and left 1 By B6
+        rev_by_route_num_title = anchor_cell_loc.offset(
+            row_offset=1, column_offset=1)
+        rev_by_route_num_title.value = "By Route Number"
+        rev_by_route_num_title.api.Font.Bold = True
+
+        # down 1 and left 1 By Route Number title
+        start_of_route_nums = rev_by_route_num_title.offset(
+            row_offset=1, column_offset=1)
+        start_of_route_nums.value = route_nums
+        # ======================================================
+        # Money figures Offset Left 4 by the starting of
+        # To make 100% sure the figure is matching the route
+        # use for loop or list comp to each out the money figure
+        # correspond it to the route number
+        # but I will just list it out, as time constriant
+        start_of_route_nums_figure = start_of_route_nums.offset(
+            column_offset=4)
+        start_of_route_nums_figure.value = route_nums_figure
+        # ======================================================
+
+    def routes_rev_display_horizontal(
+            self,
+            wb,
+            ws_name: str,
+            route_nums=[],
+            route_nums_figure=[],
+            anchor_cell: str = "B4"):
+
+        # col 9
+        ws = wb.sheets[ws_name]
+        # anchor_cell => Income Label
+        anchor_cell_loc = ws.range(anchor_cell)
+        # Left 9
+        rev_by_route_num_title = anchor_cell_loc.offset(column_offset=9)
+        rev_by_route_num_title.value = "By Route Number"
+        rev_by_route_num_title.api.Font.Bold = True
+
+        # down 1 and left 1 By Route Number title
+        start_of_route_nums = rev_by_route_num_title.offset(row_offset=1)
+        start_of_route_nums.value = route_nums
+        # ======================================================
+        # Money figures Offset Left 4 by the starting of
+        # To make 100% sure the figure is matching the route
+        # use for loop or list comp to each out the money figure
+        # correspond it to the route number
+        # but I will just list it out, as time constriant
+        start_of_route_nums_figure = start_of_route_nums.offset(row_offset=1)
+        start_of_route_nums_figure.value = route_nums_figure
+        # ======================================================
+
+    # Adapt it to column format
+    # type as list of str
+    def transform_list_to_nested_list(list_of_values):
+        nested_lst = [[i] for i in list_of_values]
+        return nested_lst
+
+# ================================================================================
+    # Temporary Display
+#   anchor Cell in B4
+
+    def display_rev_type_in_total_sheet(
+            self,
+            wb,
+            rev_type_name: str,
+            total_revenue: float = 0.00,
+            anchor_cell: str = "B4"):
+
+        # total sheet
+        ws = wb.sheets["total"]
+        anchor_cell_loc = ws.range(anchor_cell)
+        # left 1 down 3 => start with it
+        first_rev_type_title_cell = anchor_cell_loc.offset(
+            row_offset=3, column_offset=1)
+
+        # if has value down 1
+        # When rev_type_title cell has value it moves down
+        # refractor
+        def check_empty_cell(
+                rev_name: str,
+                target_cell: object):
+            #  starts from 0
+            if target_cell.value is None:
+                target_cell.value = rev_name
+                return target_cell
+            else:
+                new_target_cell = target_cell.offset(row_offset=1)
+                return check_empty_cell(rev_name, new_target_cell)
+
+        target_rev_title = check_empty_cell(
+            rev_type_name, first_rev_type_title_cell)
+
+        # Left 5 => revenue amount
+        rev_figure = target_rev_title.offset(column_offset=5)
+        rev_figure.value = total_revenue
+
+    # Format by Route number
+
+    # Format by Truck number
+
+    # Format by Bin Vol
+
+    # Test offset
+    # Test lIST Values in column
+
+
+
+
+report position
+
+     # Format Report Headers
+    # date index / date string or date object
+    def format_headers(self, wb, ws_name: str, date="dd/mm/yyyy"):
+        report_title = wb.sheets[ws_name].range('A1')
+
+
+        report_date = wb.sheets[ws_name].range('A2')
+
+        report_title.value = f"Weekly Financial Management Report - {ws_name}"
+
+
+        report_date.value = f"Start at : {date}"
+
+        report_title.api.Font.Size = 13
+
+        report_date.api.Font.Size = 13
+        report_title.api.Font.Bold = True
+        
+        report_date.api.Font.Bold = True
+
+
+
+
+        
+    def format_ws_font_style_to_arial(self, wb, ws_name: str):
+        ws = wb.sheets[ws_name]
+        ws.range("A:DA").api.Font.Name = "Arial"
+
+
+
+#  Create worksheets for the workbooks
+     # wb as xlwings workbook, list_of_route - List of str
+    def create_and_name_ws_by_routes(self, wb, list_of_rev_types):
+        num_rev_types = len(list_of_rev_types)
+        num_sheets = len(wb.sheets)
+
+        if num_rev_types > num_sheets:
+            add_num_sheets = num_rev_types - num_sheets
+            for n in range(add_num_sheets):
+                wb.sheets.add()
+
+        for (i, rev_type) in enumerate(list_of_rev_types):
+            wb.sheets[i].name = rev_type
+/=====================================
+    def get_trucks(self):
+        pass
+
+        # category income
+    def get_income_by_rev_type(
+            self,
+            rev_type: str,
+            date: str = "dd/mm/yy"):
+
+        series = self.df.resample('7D', kind='period')
+        series_by_date = series.get_group(date)
+
+        if rev_type != "total":
+
+            list_of_routes = self.get_routes(rev_type)
+
+            df_by_rev_type = self.filter_df_by_rev_routes(
+                series_by_date, list_of_routes)
+
+            income_by_rev_type = df_by_rev_type.Price.sum()
+
+        else:
+
+            income_by_rev_type = series_by_date.Price.sum()
+
+        return income_by_rev_type
+
+    # returns dict route : key, income_figure : value
+
+    def get_income_per_route_by_rev_type(self, rev_type: str, date: str = "dd/mm/yy"):
+        series = self.df.resample('7D', kind='period')
+        series_by_date = series.get_group(date)
+
+        if rev_type != "total":
+            list_of_routes = self.get_routes(rev_type)
+            df_by_rev_type = self.filter_df_by_rev_routes(
+                series_by_date, list_of_routes)
+            income_per_route_by_rev_type = df_by_rev_type.groupby(
+                'Route number').Price.sum()
+        else:
+            income_per_route_by_rev_type = series_by_date.groupby(
+                'Route number').Price.sum()
+        return income_per_route_by_rev_type
+
+        # income_by_rev_type = df_by_rev_type.Price.sum()
+        # return income_by_rev_type
+
+    def get_income_by_truck(self, rev_type: str, date: str = "dd/mm/yy"):
+        pass
+
+
+# Temporary - try to build query for
+class WE_income_items:
+    def __init__(
+            self,
+            total: float,
+            gw: float,
+            cb: float,
+            cm: float,
+            sub: float,
+            uos: float,
+            fx: float = 0):
+        self.total = total
+        self.gw = gw
+        self.cb = cb
+        self.cm = cm
+        self.sub = sub
+        self.uos = uos
+        self.fx = fx
+
+
+# df_date = "2021-01-20"
+# df_series = series.get_group(df_date)
+
+# rop.create_and_name_ws_by_routes(wb, rev_types)
+# [report_templates_horizontal(wb,rev_type,df_series,df_date) for rev_type in rev_types]
+
+
+# /D/'Run Analysis'/WEEKLY_SUMMARY_from_January_2021/January_2021/Weekly_Summary
+
+
+# [n for n, x in enumerate(lst) if 'abc' in x]
+# ================================================================================
+    # Temporary Display
+#   anchor Cell in B4
+    def display_rev_type_in_total_sheet(
+            wb,
+            rev_type_name: str,
+            total_revenue: float = 0.00,
+            anchor_cell: str = "B4"):
+
+        # total sheet
+        ws = wb.sheets["total"]
+        anchor_cell_loc = ws.range(anchor_cell)
+        # left 1 down 3 => start with it
+        first_rev_type_title_cell = anchor_cell_loc.offset(
+            row_offset=3, column_offset=1)
+
+        # if has value down 1
+        # When rev_type_title cell has value it moves down
+        def check_empty_cell(
+                rev_name: str,
+                target_cell: object):
+            #  starts from 0
+            if target_cell.value is None:
+                target_cell.value = rev_name
+                return target_cell
+            else:
+                new_target_cell = target_cell.offset(row_offset=1)
+                return check_empty_cell(rev_name, new_target_cell)
+
+        target_rev_title = check_empty_cell(
+            rev_type_name, first_rev_type_title_cell)
+
+        # Left 5 => revenue amount
+        rev_figure = target_rev_title.offset(column_offset=5)
+        rev_figure.value = total_revenue
+
+    # Format by Route number
+
+    # Format by Truck number
+
+    # Format by Bin Vol
+
+    # Test offset
+    # Test lIST Values in column
+
+
+
+==================================================
+Revnue attribute
+# route: str,
+# truck_num: str,
+# Rev_type: Rev_type,
+# source_csv_path: str,
+# source_db_path: str
+# self.route = route
+# self.truck_num = truck_num
+# self.waste_type = waste_type
+# self.Rev_type = Rev_type
+# self.source_csv_path = source_csv_path 
+# self.source_db_path = source_db_path
+==================================================
+
+
+
+# wb workbook,   series resmapled data (by 7D)
+
+
+# try catch on excel configuring
+# =============================
+# wb = xw.Book()
+# rop.format_ws_font_style_to_arial(wb,"Sheet1")
+# rop.format_headers(wb,"Sheet1")
+# rop.format_left_columns(wb,"Sheet1")
+# rop.format_report_content_total_income(wb,"Sheet1")
+# rop.format_report_content_rev_by_route_num(wb,"Sheet1",[[1],[2],[3]],[[4],[5],[6]])
+# =============================
+
+# time.sleep(5)
+# wb.close()
+# df = wet.extract_weekday(df)
+# df = wet.clean_route_num_column(df)
+# rev_general_waste = rev.extract_by_rev_type_hardcode('general_waste')
+
+# df = df[df['Route number'].isin(rev_general_waste)]
+
+# df = wet.transform_date_format(df)
+
+# df = df.sort_values(by=['Date'], inplace=True, ascending=False)
+
+
+# series = df.resample('7D')
+# 
+# df_123 = series.get_group('2020-12-02')
+
+# print(series.Price.sum())
+# print(df)
+# print(df)
+
+
+
+
+
+
+# UOS =>  UOSCB	UOSCO	UOSGW	CMDCB	CMDGW	CUMCB	CUMGW	NEPGW
+# Subcontractors => ALLMED	BIN	CKG	CLN	GRACE	JJR	OWE	REM	REP	REQ	RRNW	RRR	SHR	SPD	SUE	URM	VEO	VEOACT	VTG
+
+
+# UOS =>  UOSCB	UOSCO	UOSGW	CMDCB	CMDGW	CUMCB	CUMGW	NEPGW
+# Subcontractors => ALLMED	BIN	CKG	CLN	GRACE	JJR	OWE	REM	REP	REQ	RRNW	RRR	SHR	SPD	SUE	URM	VEO	VEOACT	VTG
+
