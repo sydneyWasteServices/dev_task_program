@@ -91,32 +91,48 @@ sal_df[['per_run_sal', "count_of"]] = sal_df.apply(per_route_cost, axis=1, resul
 
 # Salary_Df with 1 Route
 
-sal_df_1 = sal_df[sal_df.count_of.eq(1)][["Date", "Primary_route","per_run_sal","count_of"]].rename()
+sal_df = sal_df[sal_df.count_of.eq(1)][["Date", "Primary_route","per_run_sal","count_of"]].rename()
+
+
+
+
+
+
+
+
+# ============================================================================
+# data process============================================================================
+# ============================================================================
 
 # Salary_Df more than 1 , less than 4
-
+# Salary_Df count of Route from 1 to 3
 df_2 = sal_df[(sal_df.count_of.gt(1)) & (sal_df.count_of.lt(4))]
 
-sal_df_1 = sal_df[sal_df.count_of.eq(1)][["Date", "Primary_route","per_run_sal","count_of"]].rename(columns={"Primary_route" : "route"})    
+sal_df_1 = sal_df[sal_df.count_of.eq(1)][["Date", "Primary_route","per_run_sal","count_of"]].rename(columns={"Primary_route" : "route"})
 sal_df_2 = df_2[["Date", "Primary_route","per_run_sal","count_of"]].rename(columns={"Primary_route" : "route"})
 sal_df_3 = df_2[["Date", "Satellite_Route_1","per_run_sal","count_of"]].rename(columns={"Satellite_Route_1" : "route"})
 sal_df_4 = df_2[["Date", "Satellite_Route_2","per_run_sal","count_of"]].rename(columns={"Satellite_Route_2" : "route"})
-
-sal_df_1 = sal_df_1[sal_df_1.route.ne(0)]
-sal_df_2 = sal_df_2[sal_df_2.route.ne(0)]
-sal_df_3 = sal_df_3[sal_df_3.route.ne(0)]
-sal_df_4 = sal_df_4[sal_df_4.route.ne(0)]
+# ============================================================================
 
 
-
+# Salary_Df count more than 3 routes 
+# ============================================================================
 df_3 = sal_df[sal_df.count_of.gt(3)]
-df_3.Satellite_Route_2.str.split("/").explode()
+
+sal_df_a = df_3[["Date", "Primary_route","per_run_sal","count_of"]].rename(columns={"Primary_route" : "route"})
+sal_df_b = df_3[["Date", "Satellite_Route_1","per_run_sal","count_of"]].rename(columns={"Satellite_Route_1" : "route"})
+
+
+
+
 # Salary_Df more than 1 , greater than 4
 
 
 df_3 = sal_df[sal_df.count_of.gt(3)]
 
 
+
+# sal_df_1 = sal_df_1[sal_df_1.route.ne(0)]
 # Mark Salary cost to Roster , Primary Driver and Secondary driver
 #  
 
