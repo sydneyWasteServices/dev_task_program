@@ -46,6 +46,8 @@ sal_shifts_df['per_shift_pay'] = sal_shifts_df.total / sal_shifts_df.total_shift
 # Primary Driver Salary and Secondary Driver Salary
 # =======================================
 
+sal_per_shift = sal_shifts_df[["Employee_ID", "per_shift_pay"]]
+
 def pri_sal_cost(df):
     emp_id = df.Primary_employeeID
     sal = sal_per_shift.loc[sal_per_shift.Employee_ID == emp_id].per_shift_pay.values
@@ -62,8 +64,8 @@ def sec_sal_cost(df):
     else:
         return 0
 
-roster_df['pri_sal'] = roster_df.apply(sal_cost, axis=1)
-roster_df['sec_sal'] = roster_df.apply(sal_cost, axis=1)
+roster_df['pri_sal'] = roster_df.apply(pri_sal_cost, axis=1)
+roster_df['sec_sal'] = roster_df.apply(sec_sal_cost, axis=1)
 roster_df['sal_cost'] = roster_df.pri_sal + roster_df.sec_sal
 
 # ==================================
