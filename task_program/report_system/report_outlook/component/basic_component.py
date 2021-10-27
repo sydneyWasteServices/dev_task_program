@@ -40,7 +40,9 @@ class Basic_component:
             cell_loc: str = "A1"):
 
         title_cell = wb.sheets[ws_name].range(cell_loc)
+
         title_cell.value = f"{report_title} - {ws_name}"
+        
         title_cell.api.Font.Size = 13
         title_cell.api.Font.Bold = True
 
