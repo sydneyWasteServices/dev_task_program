@@ -64,10 +64,10 @@ class Total_info:
         self.mv_tolls = mv_tolls
         self.mv_insurance = mv_insurance
         self.mv_rm_cc = mv_rm_cc
-        self.mv_rm_cb
-        self.mv_rm_mc
-        self.mv_rm_tyres
-        self.mv_labour
-        self.mv_others
-        self.general_admin_ga
+        self.mv_rm_cb = mv_rm_cb
+        self.mv_rm_mc = mv_rm_mc 
+        self.mv_rm_tyres = mv_rm_tyres
+        self.mv_labour = mv_labour
+        self.mv_others = mv_others
+        self.general_admin_ga = general_admin_ga
        

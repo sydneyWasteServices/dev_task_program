@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-WEEK = "32th_2021"
+WEEK = "40th_2021"
 
 PATH_ROSTER = f"D:\\Run Analysis\\blob_storage\\roster\\{WEEK}.xlsx"
 PATH_SAL = f"D:\\Run Analysis\\blob_storage\\driver_salary\\processed\\{WEEK}.xlsx"
@@ -14,7 +14,9 @@ sal_df = pd.read_excel(PATH_SAL)
 roster_df = pd.read_excel(PATH_ROSTER)
 
 sal_df.Employee_ID = sal_df.Employee_ID.str.lower()
+
 sal_df['total'] = sal_df.Gross + sal_df.Super
+
 count_pri_dr = roster_df.groupby(['Primary_employeeID'])['Date'].count().rename("pri_dr")
 
 count_sec_dr = roster_df.groupby(['Secondary_employeeID'])['Date'].count().rename("sec_dr")
@@ -44,6 +46,7 @@ def sec_sal_cost(df):
        return sal[0]
     else:
         return 0
+
 
 roster_df['pri_sal'] = roster_df.apply(pri_sal_cost, axis=1)
 roster_df['sec_sal'] = roster_df.apply(sec_sal_cost, axis=1)

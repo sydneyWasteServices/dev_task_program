@@ -23,6 +23,11 @@ class Style:
         target_cell.api.Font.Size = font_size
         target_cell.api.Font.Bold = True
 
+    def boldify_route_title(self, target_cell : object, size : int):
+    
+        target_cell.api.Font.Size = size
+        target_cell.api.Font.Bold = True
+
     def fonts_arialify(
             self,
             wb: object,

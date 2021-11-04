@@ -35,14 +35,14 @@ class Components:
 
         target_cell.value = f"{period_title} {start_date} to {end_date}"
 
-    def session_title(self, 
+    def session_title(self,
                       wb: object,
                       ws_name: str,
                       cell: str,
-                      size : int,
+                      size: int,
                       session_title: str = "",
-                      isBold : bool = True):
-        
+                      isBold: bool = True):
+
         style = Style()
 
         if isBold:
@@ -59,3 +59,16 @@ class Components:
             target_cell.api.Font.Size = size
 
             target_cell.value = session_title
+
+    def route_title(self,
+                    target_cell : object,
+                    size: int,
+                    route_title: str = ""):
+
+        style = Style()
+
+        target_cell.value = route_title
+
+        style.boldify_route_title(target_cell, size)
+
+

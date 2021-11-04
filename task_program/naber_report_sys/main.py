@@ -55,7 +55,7 @@ waste_sd = {
 }
 
 
-PATH = "D:\\Run Analysis\\BLOB_STORAGE\\Nabour_report_ds\\Sep_2021.csv"
+PATH = "D:\\Run Analysis\\blob_storage\\naber_report_ds\\Oct2021.csv"
 
 df = pd.read_csv(PATH, dtype={
     "Customer_Number": np.float64,
@@ -154,9 +154,9 @@ for customer_number in customers_numbers:
         'Address_1', 'City', 'State', 'PostCode']].agg(','.join, axis=1)
 
 
-    # naber_df['Date'] = pd.to_datetime(naber_df['Date'], format='%Y-%m-%d')
+    naber_df['Date'] = pd.to_datetime(naber_df['Date'], format='%Y-%m-%d')
 
-    naber_df['Date'] = pd.to_datetime(naber_df['Date'], format='%d/%m/%Y')
+    # naber_df['Date'] = pd.to_datetime(naber_df['Date'], format='%d/%m/%Y')
 
 
     naber_df = naber_df.sort_values(by="Date", ascending=True)

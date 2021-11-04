@@ -42,6 +42,7 @@ df_toll = df_toll.rename(columns={'Start Date': 'Date'})
 
 df_toll = df_toll[['Date', 'Tag_ID', 'Details' ,'Trip Cost']]
 
+
 df_tollcostwRego = pd.merge(df_toll, df_tagid, how='left', on='Tag_ID')
 
 df_tollcostwRego = df_tollcostwRego[['Date_x', 'rego','Tag_ID','Details' ,'Trip Cost']]

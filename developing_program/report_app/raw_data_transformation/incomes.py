@@ -6,34 +6,24 @@ class Incomes:
     def __init__(self):
         return
 
-    def types_income(
-        self,
-        df : object,
-        list_of_routes : list):
-        
-        df_type_inc = df[df['Route number'].isin(list_of_routes)]
+    def group_income(
+            self,
+            df: object,
+            list_of_routes: list):
 
-        result = df_type_inc.Price.sum()
+        result = df[df.Route_number.isin(list_of_routes)].excl_gst_price.sum()
 
-        return result 
+        return result
 
+    def indie_route_income(
+            self,
+            df: object,
+            list_of_routes: list):
 
-    def routes_income(
-        self,
-        df : object,
-        list_of_routes : list):
-        
-        df_type_inc = df[df['Route number'].isin(list_of_routes)]    
-        
-        df_routes_income = df_type_inc.groupby('Route number')['Price'].sum().sort_index().reset_index()
+        route = []
 
-        return df_routes_income
+        route.append(list_of_routes)
 
+        result = df[df.Route_number.isin(route)].excl_gst_price.sum()
 
-    def all_route_income(
-        self,
-        df : object):
-
-        result = df.groupby('Route number').Price.sum()        
-
-        return result 
+        return result

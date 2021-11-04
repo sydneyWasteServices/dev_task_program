@@ -13,6 +13,7 @@ class Waste_edge_tip():
         return df
 
     def route_tip(self, df : object):
+        
         result = df.groupby('Route No').Weight.sum()
         return result
 

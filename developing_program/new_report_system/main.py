@@ -100,7 +100,6 @@ r_types = [
 gw = sorted(By_Revenue_type['GENERAL_WASTE'].value)
 cm = sorted(By_Revenue_type['COMINGLE'].value)
 cb = sorted(By_Revenue_type['CARDBOARD'].value)
-
 uos = sorted(By_Revenue_type['UOS'].value)
 
 NON_GW_ROUTE = ['APR', 'FLP', 'HYG', 'RED', 'RL5', 'RL6', 'RL8', 'RLP', 'RLR', 'SWP','CBK', 'RLC', 'RLG', 'DOY','NEPCB','UOSCB','CMDCB','CUMCB']
