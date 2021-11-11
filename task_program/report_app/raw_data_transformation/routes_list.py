@@ -23,8 +23,8 @@ class By_Revenue_type(Enum):
 
     AGG_GENERAL_WASTE =['HOOK1', 'BR1', 'BR2', 'BR3', 'FL2', 'FLG', 'RL1', 'RL2',
                      'RL4', 'RL7', 'RL9', 'RLD', 'RLE', 'RLH', 'RLI', 'RLJ', 'RLK', 'SWG', 'UOSGW', 'CMDGW', 'CUMGW', 'NEPGW']
-
-    AGG_CARDBOARD = ['APR', 'FLP', 'HYG', 'RED', 'RL5',
+# Subcontractor FLP  , RLR merged with RED
+    AGG_CARDBOARD = ['APR', 'HYG', 'RED', 'RL5',
                  'RL6', 'RL8', 'RLP', 'RLR', 'SWP', 'HOOKCB','UOSCB','CMDCB','CUMCB','NEPCB']
 
     AGG_COMINGLE = ['CBK', 'RLC', 'RLG', 'DOY', 'UOSCO']

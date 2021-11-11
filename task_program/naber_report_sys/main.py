@@ -158,9 +158,7 @@ for customer_number in customers_numbers:
 
     # naber_df['Date'] = pd.to_datetime(naber_df['Date'], format='%d/%m/%Y')
 
-
     naber_df = naber_df.sort_values(by="Date", ascending=True)
-
 
     naber_df["Processing Facility sent to (Optional)"] = naber_df['Waste_Type'].transform(
         facility)
@@ -207,7 +205,6 @@ for customer_number in customers_numbers:
     
     naber_df = naber_df.rename(columns={'Bin_Volume': 'Size (m3)'})
                 
-
     fileExt = ".xlsx"
     
     naber_df.to_excel(Path(str(address)+"_"+str(customer_number)+fileExt), sheet_name=str(customer_number), columns=[
