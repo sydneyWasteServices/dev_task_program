@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import xlwings as xw
 
-WEEK = "40th_2021"
+WEEK = "41th_2021"
 
 PATH_TAG_ID = "D:\\Run Analysis\\blob_storage\\toll_id.csv"
 

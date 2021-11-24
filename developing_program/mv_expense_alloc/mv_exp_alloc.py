@@ -5,7 +5,7 @@ import glob
 
 if __name__ == "__main__":
 
-    WEEK = "40th_2021"
+    WEEK = "41th_2021"
 
     PATH_TRANSFORMED_MVEXP = f"D:\\Run Analysis\\blob_storage\\truck_exp_other\\transformed_og_ds\\{WEEK}.csv"
 

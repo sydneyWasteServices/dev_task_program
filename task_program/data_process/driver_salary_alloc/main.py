@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-WEEK = "40th_2021"
+WEEK = "41th_2021"
 
 PATH_ROSTER = f"D:\\Run Analysis\\blob_storage\\roster\\{WEEK}.xlsx"
 PATH_SAL = f"D:\\Run Analysis\\blob_storage\\driver_salary\\processed\\{WEEK}.xlsx"

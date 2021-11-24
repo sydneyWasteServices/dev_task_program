@@ -38,9 +38,13 @@ customers_number = ton_data.index.get_level_values(0).unique()
 
 def recycle_rate_by_state(x):
         
-        if  (x.STATE == 'NSW' or x.STATE == 'ACT') and x.Waste_type == 'General Waste' :
+        if  x.STATE == 'NSW' and x.Waste_type == 'General Waste' :
             
             return x.Total_volume / 3.394 * 0.6 
+
+        elif x.STATE == 'ACT' and x.Waste_type == 'General Waste' :
+            
+            return x.Total_volume / 3.394 * 0.15 
         
         elif x.STATE == 'VIC' and x.Waste_type == 'General Waste' :
             

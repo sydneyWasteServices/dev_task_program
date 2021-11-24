@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
 # Form Session - Reveune
 
-    components.session_title(wb, "main_report", "B5", 12, "Recenue / Run")
+    components.session_title(wb, "main_report", "B5", 12, "Revenue / Run")
 
     components.session_title(wb, "main_report", "B6", 12, "% of the Total Revenue")
     
@@ -190,8 +190,6 @@ if __name__ == "__main__":
 # Populate to excel spread sheet
 # 
 #  
-
-
 
 # Indie Route title starts
 
