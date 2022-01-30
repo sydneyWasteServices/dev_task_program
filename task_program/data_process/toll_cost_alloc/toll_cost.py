@@ -130,7 +130,6 @@ roster_df[['per_run_toll', "count_of"]] = roster_df.apply(per_route_cost, axis=1
 # Per run toll cost dataframe
 
 
-
 roster_df[['per_run_sal', "count_of"]] = roster_df.apply(per_route_cost, axis=1, result_type='expand') 
 
 ros_df_1 = roster_df[roster_df.Primary_route.ne(
@@ -139,6 +138,8 @@ ros_df_1 = roster_df[roster_df.Primary_route.ne(
 ros_df_2 = roster_df[roster_df.Satellite_Route_1.ne(
     0)][["Date", "Satellite_Route_1", "per_run_sal", "count_of"]].rename(columns={'Satellite_Route_1': 'route'})
 
+# ===============================================
+# Use of Explode 
 ros_df_3 = (roster_df[roster_df.Satellite_Route_2.ne(0)][["Date", "Satellite_Route_2", "per_run_sal", "count_of"]]
             .set_index(['Date', 'per_run_sal', 'count_of'])
             .apply(lambda x: x['Satellite_Route_2']
@@ -147,6 +148,7 @@ ros_df_3 = (roster_df[roster_df.Satellite_Route_2.ne(0)][["Date", "Satellite_Rou
             .reset_index()
             .rename(columns={ 0 : 'route'})
             )
+# ===============================================
 
 toll_alloc_df = pd.concat([ros_df_1,ros_df_2 ,ros_df_3])
 
