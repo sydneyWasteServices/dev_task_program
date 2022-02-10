@@ -7,26 +7,20 @@ do
         # more than one match
         echo $id;
         echo $(ls ./ | grep $id -w); else
-
-        # equal to 1 
-        # rm 
-        # echo $( ls ./ | grep $id -c -w);
-        
-        echo $id;
-        echo "to remove"
+        ls ./ | grep -w $id | xargs -d '\n' rm
     fi
 done
 
+# let "COUNT+=1"
+# echo $COUNT
+# COUNT=$[$COUNT +1]
+# let COUNT++
+# echo $COUNT
+# equal to 1 -> rm
+# -0 -d "\n" -exec rm
 # $(ls ./ | grep $id -w)
-
+# echo $( ls ./ | grep $id -c -w);
 # $(ls ./ | grep $id -c)
-
 # issues - the ternary even larger than 1 is True 
 # l | grep 1115 -w -c | echo $(( xargs > 1 ))
-
-
-# 7575
-
-
-
-
+# /c/Users/Gordon.Tang/Desktop/codes/repo/dev_task_program/task_program/JLL/mv_files_grep_last_field/main.sh
