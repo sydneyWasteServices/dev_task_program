@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import glob
+from datetime import date
 
 # Company_Entity
 def clean_df(PATH):
@@ -53,13 +54,16 @@ def clean_dash(df):
     
 if __name__ == "__main__":
 
-    IPATH = "C:\\Users\\Gordon.Tang\\Desktop\\dataManagement\\ds\\progens_healius\\*.xlsx"
-    OPATH = "C:\\Users\\Gordon.Tang\\Desktop\\dataManagement\\csv_ds\\progen.csv"
+    todayDate = date.today().strftime("%d-%m-%Y")
 
+    IPATH = "C:\\Users\\Gordon.Tang\\Desktop\\dataManagement\\ds\\progens_healius\\*.xlsx"
+    OPATH = f"C:\\Users\\Gordon.Tang\\OneDrive - JLL\\Progen_Site_List\\progen{todayDate}.csv"
+    
     df = pd.concat(map(clean_df, glob.glob(IPATH))).sort_values(by="Lease")
     
     df["Owner Group Name"] = df.apply(clean_dash,axis=1)
-    # print(df["Owner Group Name"].unique())
+    df['Lease Group Name'] = df.apply(clean_dash,axis=1)
+    
     df.to_csv(OPATH)
 
 
