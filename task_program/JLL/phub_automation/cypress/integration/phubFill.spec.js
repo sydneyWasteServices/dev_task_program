@@ -28,7 +28,7 @@ const phub = `https://apps.jll.com/PortfolioTracker/OneView/Editor.aspx?nClientI
 //     cy.visit(google)
 // })
 
-// input-validation-error inp inp-usr
+// 
 // input-validation-error inp inp-pwd sso-hid
 
 describe("Correct Street", function () {
@@ -41,8 +41,19 @@ beforeEach(
 )
 */
 
-it('test visit method', function() {
+it('test visit method', async function() {
     cy.visit(phub)
+    cy.get('input.input-validation-error.inp.inp-usr').focus()
+
+    await cy.get("input.input-validation-error.inp.inp-usr.iw-foc").focus()
+
+    cy.get("input.input-validation-error.inp.inp-usr.iw-foc").click()
+
+    // .type("admin")
+
+    // .type("admin")
+
   })
 
 })
+

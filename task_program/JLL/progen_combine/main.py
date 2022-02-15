@@ -2,13 +2,45 @@ import pandas as pd
 import numpy as np
 import glob
 
-
+# Company_Entity
 def clean_df(PATH):
-    df = pd.read_excel(PATH, dtype={
-        "Bank Guarantee Amount" : np.float64,
-        "Corrigo Customer Number" : np.float64,
-        "OVCP ID JLL Interface" : np.float64,
-        "Version" : int})
+    df = pd.read_excel(PATH)
+    df['Bank Guarantee Amount'] = df['Bank Guarantee Amount'].fillna(0)
+    df['Corrigo Customer Number'] = df['Corrigo Customer Number'].fillna(0)
+    df['OVCP_ID - JLL Interface'] = df['OVCP_ID - JLL Interface'].fillna(0)
+    df['Version'] = df['Version'].fillna(0)
+    df['Suite Group'] = df['Suite Group'].fillna(0)
+    df['Option'] = df['Option'].fillna("no")
+    df['Bond Amount'] = df['Bond Amount'].fillna(0)
+
+
+    df['Start Date'] = df['Start Date'].fillna("01/01/1900")
+    df['Stop Date'] = df['Stop Date'].fillna("01/01/1900")
+    
+    df['Occupancy'] = df['Occupancy'].fillna("01/01/1900")
+    df['Vacated Date'] = df['Vacated Date'].fillna("01/01/1900")
+    df['Bond Received'] = df['Bond Received'].fillna("01/01/1900")
+    
+
+    df['Occupancy'] = pd.to_datetime(df['Occupancy'], format="%d/%m/%Y")
+    df['Vacated Date'] = pd.to_datetime(df['Vacated Date'], format="%d/%m/%Y")
+    df['Bond Received'] = pd.to_datetime(df['Bond Received'], format="%d/%m/%Y")
+
+    # Occupancy
+    df.Version = pd.to_numeric(df.Version, downcast="integer")
+    df['Suite Group'] = pd.to_numeric(df['Suite Group'], downcast="integer")
+    df['SAP Company Code'] = pd.to_numeric(df['SAP Company Code'], downcast="integer")
+    
+
+    df.astype({
+        "Bank Guarantee Amount" : float, 
+        "Corrigo Customer Number" : float,
+        "OVCP_ID - JLL Interface" : int,
+        "Version" : int,
+        "Suite Group" : int
+        })
+
+    
     return df
 
 def clean_dash(df):
