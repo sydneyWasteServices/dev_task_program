@@ -1,0 +1,20 @@
+var inputs = document.querySelectorAll('input');
+
+var inputEvent = new Event('input', {
+    'bubbles': true,
+    'cancelable': true
+});
+
+inputs[0].value = 'Sydneywaste';
+inputs[0].dispatchEvent(inputEvent);
+
+inputs[1].value = 'gordon';
+inputs[1].dispatchEvent(inputEvent);
+
+inputs[2].value = 'gordon';
+inputs[2].dispatchEvent(inputEvent);
+
+var btn = document.querySelector('button');
+
+btn.click();
+

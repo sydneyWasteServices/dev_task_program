@@ -1,0 +1,8 @@
+
+var burger = document.querySelector('[data-target="#headerMenuCollapse"]');
+
+burger.click();
+
+var eventLog = document.querySelector('[routerlink="events_log/-1"]');
+
+eventLog.click();
