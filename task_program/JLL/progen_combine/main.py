@@ -57,14 +57,16 @@ if __name__ == "__main__":
     todayDate = date.today().strftime("%d-%m-%Y")
 
     IPATH = "C:\\Users\\Gordon.Tang\\Desktop\\dataManagement\\ds\\progens_healius\\*.xlsx"
-    OPATH = f"C:\\Users\\Gordon.Tang\\OneDrive - JLL\\Progen_Site_List\\progen{todayDate}.csv"
-    
+    OPATH_X = f"C:\\Users\\Gordon.Tang\\OneDrive - JLL\\Progen_Site_List\\progen{todayDate}.xlsx"
+    OPATH_CSV = f"C:\\Users\\Gordon.Tang\\OneDrive - JLL\\Progen_Site_List\\csv\\progen{todayDate}.csv"
+
     df = pd.concat(map(clean_df, glob.glob(IPATH))).sort_values(by="Lease")
     
     df["Owner Group Name"] = df.apply(clean_dash,axis=1)
     df['Lease Group Name'] = df.apply(clean_dash,axis=1)
     
-    df.to_csv(OPATH)
+    df.to_excel(OPATH_X, index_label="ID")
+    df.to_csv(OPATH_CSV, index_label="ID")
 
 
 
