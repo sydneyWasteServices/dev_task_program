@@ -3,13 +3,16 @@ import numpy as np
 import pyodbc
 import os
 import textwrap as tw
-
-# step 1
+from datetime import date
+# step 1  25.2.2022
 # Since they are the same table, 
 # Select into  and then truncate the whole table
+todayDate = date.today().strftime("%d-%m-%Y")
 
-IROOT = "C:\\Users\\Gordon.Tang\\OneDrive - JLL\\Progen_Site_List\\csv\\"
-TB_NAME = "progen24-03-2022"
+IROOT = "C:\\Users\\Gordon.Tang\\OneDrive - JLL\\Progen\\csv\\"
+
+TB_NAME = f"progen{todayDate}"
+
 IPATH = f"{IROOT}{TB_NAME}.csv"
 
 def clean_df(PATH : str):

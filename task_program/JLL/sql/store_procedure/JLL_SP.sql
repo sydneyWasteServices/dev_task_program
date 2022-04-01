@@ -6,6 +6,8 @@
 USE 
 JLL
 GO
+DROP TABLE dbo.[progen8.2.2022]
+EXEC tablesDataType 'Property_hub'
 
 -- list SP 
 Select [NAME] from sysobjects where type = 'P' and category = 0;

@@ -1,35 +1,30 @@
--- Use intersect compare two dataset
--- progen15-02-2022
--- progen09-03-2022
-
--- progen14-03-2022
--- progen17-03-2022
--- progen22-03-2022
-
--- List Table
-SELECT TABLE_NAME  FROM INFORMATION_SCHEMA.TABLES;
-
-USE JLL 
-GO
-
 -- Check Status
 SELECT 
 *
 FROM 
+dbo.[progen29-03-2022]
+WHERE
+[Name] LIKE '%ZILZIE%'
+
+
+-- Check names
+SELECT 
+[Compant]
+FROM 
 dbo.[progen24-03-2022]
-WHERE 
-[Name] LIKE '%WA - AUSTRALIND - Shop 24, Australind S/C, Old Coast Rd ACC 2%'
+WHERE
+[Name] LIKE '%dee why%'
 
 
 SELECT 
-[Component_Area_Leaseable]
+*
 FROM 
 dbo.[progen23-03-2022]
 WHERE 
-[Name] LIKE '%Dalgleish St%'
+[Name] LIKE '%mt isa%'
 
+-- [Name] LIKE '%Dalgleish St%'
 -- Component_Area_Leaseable
-
 -- [OVCP_ID_JLL_Interface] = 0
 -- AND 
 -- [Lease] IN ('LA0440', 'LA0441')
@@ -38,7 +33,7 @@ WHERE
 -- ('6008504', '6004821', '6007973')
 
 
--- Check 0 in Corrigo Customer Number
+-- Send
 SELECT 
 *
 FROM 
@@ -112,4 +107,30 @@ SELECT
 [Lease]
 FROM 
 dbo.[progen15-02-2022]
+
+
+-- ======================================================================
+-- ======================================================================
+
+SELECT 
+    [Property_Name], [Property_Status]
+FROM 
+    dbo.[Property_hub]
+WHERE
+    [Property_Name] LIKE '%kogarah%'
+
+SELECT 
+    *
+FROM 
+    dbo.[progen30.3.2022]
+WHERE
+    [NAME] LIKE '%kogarah%'
+ORDER BY
+    [NAME]
+
+-- ======================================================================
+-- ======================================================================
+
+
+
 

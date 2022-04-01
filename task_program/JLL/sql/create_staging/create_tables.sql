@@ -41,6 +41,7 @@ SELECT * INTO
 FROM
     [JLL_Healius_Data_Management].[TEST].[PROGEN] 
 
+
 SELECT 
     *
 FROM 
