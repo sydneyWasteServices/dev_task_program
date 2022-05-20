@@ -22,7 +22,6 @@ def clean_df(
     return df
 
 
-
 def truncateTable(
     curs : object,
     TB_name : str

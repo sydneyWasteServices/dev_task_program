@@ -38,9 +38,14 @@ def clean_df(PATH : str):
     df["Bond Received"] = pd.to_datetime(df["Bond Received"], format="%Y-%m-%d")
     df["Bank Guarantee Expiry Date"].fillna("01/01/1900 00:00")
     df["Bank Guarantee Expiry Date"] = pd.to_datetime(df["Bank Guarantee Expiry Date"], format="%Y-%m-%d %H:%M")
+    df["Site Type"] = df["Site Type"].fillna("NOTHING")
+    df["Cost Centre"] = df["Cost Centre"].fillna(0)
+    df["SAP Company Code"] = df["SAP Company Code"].fillna(0)
+    df["Gross / Net"] = df["Gross / Net"].fillna("NOTHING")
     # ===============================================
 # To convert Null
     df = df.astype(object).where(pd.notnull(df), None)
+
     return df
 
 def cloneTableNTruncate(

@@ -1,9 +1,15 @@
--- Count number of new properties
 USE 
 JLL
 GO
 
+SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES;
 
+-- =========================================================================================================================================
+-- Progen Compare - using Except 
+-- Previous vs Current Progen Data
+-- Current vs Previous Progen Data
+-- =========================================================================================================================================
+-- Count Number of Difference Rows
 SELECT
     COUNT(*)
 FROM
@@ -22,16 +28,17 @@ FROM
 temp;
 
 -- Get new properties
+-- =========================================================================================================================================
 Select 
     *
 FROM
-    [progen28-03-2022]
+    [progen01-04-2022]
 WHERE 
-[progen28-03-2022].[Lease] in (             
+[progen01-04-2022].[Lease] in (             
     SELECT
         [Lease]
     FROM
-        dbo.[progen28-03-2022]
+        dbo.[progen01-04-2022]
     WHERE 
         [Status] NOT LIKE '%Pre-Lease%'
 EXCEPT
@@ -41,6 +48,7 @@ EXCEPT
         dbo.[progen15-02-2022])
 ORDER BY 
     [Lease]
+
 
 Select 
     *
@@ -63,19 +71,24 @@ ORDER BY
     [Lease]
 
 
-
--- Lease Number Change
-
-SELECT 
-    *
-FROM
-    dbo.[progen24-03-2022]
-WHERE
-    [Lease] = 'LA0450'
-
--- [Name] LIKE '%tyron%'
-
+-- =========================================================================================================================================
+-- Check Duplicate Lease ID
+-- =========================================================================================================================================
+WITH CHECK_TB AS (
+    SELECT 
+        [Lease]
+    FROM 
+        dbo.[progen05-05-2022]
+    GROUP BY
+        [Lease]
+    HAVING
+        COUNT(*) > 1 
+)
 SELECT 
     *
 FROM 
-    dbo.[progen21.2.2022]
+    dbo.[progen05-05-2022] OG_TB
+JOIN 
+    CHECK_TB
+ON
+    OG_TB.[Lease] = CHECK_TB.[Lease]

@@ -24,6 +24,3 @@ if __name__ == "__main__":
     corrigo_df.to_excel(writer, index=False, sheet_name="Corrigo")
 
     writer.save()
-
-
-# 
